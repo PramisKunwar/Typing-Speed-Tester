@@ -1,10 +1,8 @@
 (function () {
   "use strict";
 
-  // Prevent double injection
   if (document.getElementById("tst-float-btn")) return;
 
-  // --- Text Extraction ---
   function extractText() {
     var paragraphs = document.querySelectorAll("p");
     var texts = [];
@@ -22,14 +20,12 @@
       combined = document.body.innerText || "";
     }
 
-    // Clean up
     combined = combined
       .replace(/[\t\r\n]+/g, " ")
       .replace(/\s{2,}/g, " ")
       .replace(/[^\x20-\x7E]/g, "")
       .trim();
 
-    // Take a portion of ~200-300 chars, ending at a word boundary
     if (combined.length > 300) {
       var cut = combined.substring(0, 300);
       var lastSpace = cut.lastIndexOf(" ");
@@ -43,19 +39,16 @@
     return combined || "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.";
   }
 
-  // --- Floating Button ---
   var floatBtn = document.createElement("button");
   floatBtn.id = "tst-float-btn";
   floatBtn.textContent = "Typing Test";
   document.body.appendChild(floatBtn);
 
-  // --- State ---
   var testText = "";
   var startTime = null;
   var timerInterval = null;
   var finished = false;
 
-  // --- Build Modal ---
   function openModal() {
     if (document.getElementById("tst-overlay")) return;
 
@@ -93,7 +86,6 @@
     var input = document.getElementById("tst-input");
     input.focus();
 
-    // Events
     input.addEventListener("input", onInput);
     document.getElementById("tst-close-btn").addEventListener("click", closeModal);
     document.getElementById("tst-close-btn2").addEventListener("click", closeModal);
@@ -137,7 +129,6 @@
     var input = document.getElementById("tst-input");
     var typed = input.value;
 
-    // Start timer on first keystroke
     if (!startTime && typed.length > 0) {
       startTime = Date.now();
       timerInterval = setInterval(updateTimer, 100);
@@ -145,7 +136,6 @@
 
     renderText(typed);
 
-    // Update char count
     var cc = document.getElementById("tst-char-count");
     if (cc) cc.textContent = typed.length + " / " + testText.length;
 
@@ -169,10 +159,8 @@
     var elapsed = (Date.now() - startTime) / 1000;
     var minutes = elapsed / 60;
 
-    // WPM: (chars / 5) / minutes
     var wpm = Math.round(typed.length / 5 / minutes);
 
-    // Accuracy
     var correct = 0;
     for (var i = 0; i < testText.length; i++) {
       if (typed[i] === testText[i]) correct++;

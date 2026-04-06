@@ -24,3 +24,15 @@ A Chrome extension that extracts text from any page and turns it into a typing t
 - Text Preparation for typing.
 - Typing Text UI which calculates WPM and accuracy.
 - Close Button
+
+---
+
+### Author
+Pramis Kunwar
+
+---
+
+### License
+Made for hack club.
+
+  

@@ -1,6 +1,10 @@
 # Typing Speed Tester
 A Chrome extension that extracts text from any page and turns it into a typing test.
 
+---
+![Project Screenshot](/Test.png)
+
+---
 
 ## Core features:
 - Floating Button ("Typing Test") appears on every webpage.

@@ -262,3 +262,41 @@
 #tst-close-btn:hover {
   color: #b94a3a;
 }
+
+#tst-time-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tst-time-label {
+  font-size: 12px;
+  color: #6b6155;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tst-time-btn {
+  background: #f4ecd8;
+  color: #2f2a24;
+  border: 1px solid #2f2a24;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.tst-time-btn:hover {
+  background: #ede5ce;
+}
+
+.tst-time-btn.tst-time-active {
+  background: #2f2a24;
+  color: #f4ecd8;
+  box-shadow: 1px 1px 0px #c97b3b;
+}
